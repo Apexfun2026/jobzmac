@@ -3,11 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="We've a collection of impressively addicting games for you to enjoy your free time playing the
-    stylish free games online, at h5gamelist.cc we work to give you with a free and addicting fun game
-    experience soon we will have our exclusive games sector with surprise and always free.">
-	<title>Games</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Popular games - Discover the most popular and trending games at h5gamelist" />
+	<title>Popular Games - h5gamelist</title>
 	<link rel="shortcut icon" href="images/youxi_icon.png" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="style/index.css" />
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" />
@@ -18,19 +16,17 @@
 	<link rel="stylesheet" type="text/css" href="style/public.css" />
 	<link rel="stylesheet" type="text/css" href="style/vue.css" />
 	<!--谷歌代码开始--->
-	<!-- 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2780594097763520"
+	<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2780594097763520"
      crossorigin="anonymous"></script> -->
-
 	<!--谷歌代码结束--->
 </head>
 
 <body>
 	<!-- <noscript>
-			<img src="https://data.ad-score.com/img?s=ns&pid=1000924&tid=MW&l1=h5gamelist.cc&l2=22844476659&l3=HK"
-				width="1" height="1">
-			</img>
-		</noscript> -->
+		<img src="https://data.ad-score.com/img?s=ns&pid=1000924&tid=MW&l1=h5gamelist.cc&l2=22844476659&l3=HK" width="1"
+			height="1">
+		</img>
+	</noscript> -->
 	<div id="app" v-cloak>
 		<div class="top-nav-bar">
 			<div class="container clearfix">
@@ -66,7 +62,7 @@
 					</ul>
 				</div>
 				<a href="javascript:void(0)" id="navToggle">
-					<img src="images/caidan.png" />
+					<span></span>
 				</a>
 			</div>
 		</div>
@@ -74,7 +70,6 @@
 			<div class="top clearfix">
 				<img src="images/guanbi.png" alt="" class="closed" />
 			</div>
-
 			<ul class="ul" data-in="fadeInDown" data-out="fadeOutUp">
 				<template v-for="cate in mainCategories" :key="cate.id">
 					<li class="active">
@@ -101,33 +96,30 @@
 			</ul>
 		</div>
 		<main>
-			<!-- <section class="section" style="padding: 20px 0;">
-				<div class="ad-container" style="max-height: 120px; overflow: hidden;">
-					 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2780594097763520"
-						data-ad-slot="9856512631" data-ad-format="auto" data-full-width-responsive="true"></ins>
-		
-				</div>
-			</section> -->
 			<section class="section">
+				<div class="ad-container">
+					<!--谷歌代码开始--->
+					<!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2780594097763520"
+						data-ad-slot="9856512631" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+					<!--谷歌代码结束--->
+				</div>
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
-							<div
-								class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
-								<h4 class="title mb-0"><i class="min-wujiaox">★</i><i class="max-wujiaox">★</i> Popular <i class="max-wujiaox">★</i><i class="min-wujiaox">★</i></h4>
+							<div class="section-title text-center mb-4">
+								<h4 class="title"><i class="min-wujiaox">★</i><i class="max-wujiaox">★</i> Popular Games <i class="max-wujiaox">★</i><i class="min-wujiaox">★</i></h4>
 							</div>
 						</div>
 					</div>
-
 					<div class="row">
-						<div class="col-6 col-lg-3 mt-4 pt-2" v-for="item in popular.slice(0, 20)" :key="item.gameId">
+						<div class="col-6 col-lg-3 mt-4 pt-2" v-for="item in list" :key="item.gameId">
 							<a :href="handleToDetail(item.gameId, 'Popular')">
 								<div class="position-relative overflow-hidden blog  rounded shadow">
 									<div class="position-relative overflow-hidden">
 										<img :src="item.gameLogo" :data-src="item.gameLogo"
 											:alt="`${item.gameLogo}|${item.gameId}`" class="img-fluid blog-img">
 										<div class="blog-tag">
-											<span class="badge bg-primary fw-light">Play</span>
+											<span class="badge bg-primary fw-light">play</span>
 										</div>
 									</div>
 									<div class="content p-4 ">
@@ -136,7 +128,7 @@
 											style="font-size: 16px !important;color: #ffbc42;"><span
 												class="score-icon"></span>4.5 &nbsp;<span style="color: #fa009f;"><span
 													class="heart-fill"></span>Like {{item.gameId}}</span></span>
-										<span class="title text-dark d-block mt-2 h5">{{item.gameName}}</span>
+										<a href="#" class="title text-dark d-block mt-2 h5">{{item.gameName}}</a>
 										<div class="play-imgs">
 											<img src="images/GamePlay.png" alt="" />
 										</div>
@@ -144,88 +136,47 @@
 								</div>
 							</a>
 						</div>
-						<a href="popular.html" class="more-link"
-							style="width: 90%;display: inline-block;text-align: center;color: #fff;background: #ffbc42;line-height: 40px;border-radius: 20px;margin: 20px auto;font-weight: 600;font-size: 18px;">
-							More →
-						</a>
 					</div>
-				</div>
-			</section>
-			<section class="section">
-				<div class="container" v-for="(parent, key) in gameData" :key="parent">
-					<div class="row">
+					<div class="row mt-4" v-if="totalPages > 1">
 						<div class="col-12">
-							<div
-								class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
-								<h4 class="title mb-0"><i class="min-wujiaox">★</i><i class="max-wujiaox">★</i> {{parent.name}} <i class="max-wujiaox">★</i><i class="min-wujiaox">★</i></h4>
-							</div>
+							<nav aria-label="Page navigation">
+								<ul class="pagination justify-content-center">
+									<li class="page-item" :class="{ disabled: currentPage === 1 }">
+										<a class="page-link" href="javascript:void(0)"
+											@click="goToPage(currentPage - 1)"
+											:tabindex="currentPage === 1 ? -1 : 0">←</a>
+									</li>
+									<li class="page-item" v-for="pageNum in getPageNumbers()" :key="pageNum"
+										:class="{ active: pageNum === currentPage, disabled: pageNum === '...' }">
+										<a v-if="pageNum !== '...'" class="page-link" href="javascript:void(0)"
+											@click="goToPage(pageNum)">{{ pageNum }}</a>
+										<span v-else class="page-link">{{ pageNum }}</span>
+									</li>
+									<li class="page-item" :class="{ disabled: currentPage === totalPages }">
+										<a class="page-link" href="javascript:void(0)"
+											@click="goToPage(currentPage + 1)"
+											:tabindex="currentPage === totalPages ? -1 : 0">→</a>
+									</li>
+								</ul>
+							</nav>
 						</div>
 					</div>
-					<div class="row">
-						<div v-for="child in (parent.displayGames || parent.games || []).slice(0, 12)"
-							:key="child.gameId">
 
-							<ul>
-								<li class="li-left">
-									<a :href="handleToDetail(child.gameId, parent.name)">
-										<div class="position-relative overflow-hidden blog  rounded shadow">
-											<div class="position-relative overflow-hidden">
-												<img :src="child.gameLogo" :data-src="child.gameLogo"
-													:alt="`${child.gameLogo}|${child.gameId}`"
-													class="img-fluid blog-img">
-											</div>
-										</div>
-									</a>
-								</li>
-								<li class="li-right">
-									<a :href="handleToDetail(child.gameId, parent.name)">
-										<div class="content" style="padding: 10px;">
-											<small><i class="uil uil-calendar-alt"></i></small>
-											<span class="score_span"
-												style="font-size: 16px !important;color: #ffbc42;"><span
-													class="score-icon"></span>4.5 &nbsp;<span
-													style="color: #fa009f;"><span class="heart-fill"></span>Like
-													{{child.gameId}}</span></span>
-											<span class="title text-dark d-block mt-2 h5">{{child.gameName}}</span>
-											<div class="score"
-												style="position: relative;  display: flex;align-items: center;">
-												<div>
-													<img src="images/GamePlay.png" alt="" width="50px" />
-												</div>
-												<div style="width: 150px;">
-													<span class="badge bg-primary fw-light">play</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<a v-if="parent.name !== 'Home'" :href="handleToType(parent)" class="more-link"
-							style="width: 90%;display: inline-block;text-align: center;color: #fff;background: #ffbc42;line-height: 40px;border-radius: 20px;margin: 20px auto;font-weight: 600;font-size: 18px;">
-							More →
-						</a>
-					</div>
+				</div>
 			</section>
 		</main>
 		<footer v-html="footer"></footer>
 	</div>
 </body>
 <script src="script/jquery-1.10.2.js"></script>
-<script src="script/main.js"></script>
 <script src="script/footer.js"></script>
-<script src="script/gameData.js"></script>
+<script src="script/main.js"></script>
 <script src="script/vue.min.js"></script>
 <script src="script/axios.min.js"></script>
 <script src="script/bootstrap.bundle.min.js"></script>
 <script src="script/bootstrap-3.3.4.js"></script>
 <script src="script/swiper.min.js"></script>
 <script src="script/header.js"></script>
-<script src="script/index.js"></script>
-<!--谷歌代码开始--->
-<!-- <script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-</script> -->
-<!--谷歌代码结束--->
+<script src="script/popular.js"></script>
 
 </html>
