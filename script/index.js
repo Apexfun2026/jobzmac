@@ -147,7 +147,6 @@ var vm = new Vue({
           },
         })
           .then((res) => {
-            console.log(res.data);
             return {
               name: category.name,
               games: res.data.data || [],

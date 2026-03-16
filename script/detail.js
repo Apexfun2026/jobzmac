@@ -8,7 +8,6 @@ var vm = new Vue({
             detail: {},
             footer: '',
             gameChannelId: 0,
-            // 所有分类
             allCategories: [{
                 name: 'Home',
                 id: 15
@@ -73,15 +72,14 @@ var vm = new Vue({
         }
     },
     computed: {
-        // PC端主要分类（显示在导航栏）
         mainCategories() {
-            return this.allCategories.slice(0, 7) // 前7个作为主要分类
+            return this.allCategories.slice(0, 7) 
         },
-        // PC端更多分类（放入下拉菜单）
+        // PC
         moreCategories() {
-            return this.allCategories.slice(7) // 剩余的放入More菜单
+            return this.allCategories.slice(7) // 
         },
-        // 移动端显示所有分类
+        // 
         categories() {
             return this.allCategories
         }
@@ -90,10 +88,10 @@ var vm = new Vue({
         this.getDetail()
     },
     mounted() {
-        // 确保Vue渲染完成后移除v-cloak并显示导航
+        // 
         this.$nextTick(() => {
             this.init();
-            // 强制移除v-cloak属性
+            // 
             this.$el.removeAttribute('v-cloak');
         });
     },
@@ -120,11 +118,11 @@ var vm = new Vue({
                 this.disabled = false
                 this.gameSrc =
                     `https://www.datinginfo.top/game/index.html?gameFileName=${this.detail.gameFileName}/`
-                // 更新浏览器标题为游戏名称
+                // 
                 if (this.detail.gameName) {
                     document.title = this.detail.gameName + ' - h5gamelist'
                 }
-                // 记录游戏访问历史
+                // 
                 this.saveGameHistory({
                     gameId: gameId,
                     gameName: this.detail.gameName,
@@ -140,11 +138,11 @@ var vm = new Vue({
         saveGameHistory(game) {
             try {
                 let history = JSON.parse(localStorage.getItem('gameHistory') || '[]')
-                // 移除已存在的相同游戏
+                // 
                 history = history.filter(item => item.gameId !== game.gameId)
-                // 添加到开头
+                // 
                 history.unshift(game)
-                // 最多保存50个
+                // 
                 history = history.slice(0, 50)
                 localStorage.setItem('gameHistory', JSON.stringify(history))
             } catch (e) {

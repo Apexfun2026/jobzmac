@@ -69,7 +69,6 @@
                     var ele = document.createElement('script')
                     ele.innerHTML = this.poster2
                     this.$refs.poster.append(ele)
-                    console.log(ele)
                   }, 16)
                 } else {
                   this.poster = str.slice(str.indexOf('<div'), str.indexOf(
@@ -83,7 +82,6 @@
                     var ele2 = document.createElement("script");
                     ele2.innerHTML = this.poster3;
                     this.$refs.poster.append(ele2);
-                    console.log(ele)
                   }, 16);
                 }
                 break;
@@ -98,7 +96,6 @@
                     var ele = document.createElement('script')
                     ele.innerHTML = this.poster5
                     this.$refs.topAd.append(ele)
-                    console.log(ele)
                   }, 16)
                 } else {
                   this.poster4 = str2.slice(str2.indexOf('<div'), str2.indexOf(
@@ -112,7 +109,6 @@
                     var ele2 = document.createElement("script");
                     ele2.innerHTML = this.poster6;
                     this.$refs.topAd.append(ele2);
-                    console.log(ele)
                   }, 16);
                 }
                 break;
