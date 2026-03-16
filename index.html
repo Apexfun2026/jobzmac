@@ -96,51 +96,6 @@
 		</div>
 		<main>
 			<section class="section">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<div
-								class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
-								<h4 class="title mb-0"><i class="min-wujiaox">★</i><i class="max-wujiaox">★</i> Popular
-									<i class="max-wujiaox">★</i><i class="min-wujiaox">★</i>
-								</h4>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-6 col-lg-3 mt-4 pt-2" v-for="item in popular.slice(0, 20)" :key="item.gameId">
-							<a :href="handleToDetail(item.gameId, 'Popular')">
-								<div class="position-relative overflow-hidden blog  rounded shadow">
-									<div class="position-relative overflow-hidden">
-										<img :src="item.gameLogo" :data-src="item.gameLogo"
-											:alt="`${item.gameLogo}|${item.gameId}`" class="img-fluid blog-img">
-										<div class="blog-tag">
-											<span class="badge bg-primary fw-light">Play</span>
-										</div>
-									</div>
-									<div class="content p-4 ">
-										<small><i class="uil uil-calendar-alt"></i></small>
-										<span class="score_span"
-											style="font-size: 16px !important;color: #ffbc42;"><span
-												class="score-icon"></span>4.5 &nbsp;<span style="color: #fa009f;"><span
-													class="heart-fill"></span>Like {{item.gameId}}</span></span>
-										<span class="title text-dark d-block mt-2 h5">{{item.gameName}}</span>
-										<div class="play-imgs">
-											<img src="images/GamePlay.png" alt="" />
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-						<a href="popular.html" class="more-link"
-							style="width: 90%;display: inline-block;text-align: center;color: #fff;background: #ffbc42;line-height: 40px;border-radius: 20px;margin: 20px auto;font-weight: 600;font-size: 18px;">
-							More →
-						</a>
-					</div>
-				</div>
-			</section>
-			<section class="section">
 				<div class="container" v-for="(parent, key) in gameData" :key="parent">
 					<div class="row">
 						<div class="col-12">
@@ -196,6 +151,51 @@
 							More →
 						</a>
 					</div>
+			</section>
+						<section class="section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div
+								class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
+								<h4 class="title mb-0"><i class="min-wujiaox">★</i><i class="max-wujiaox">★</i> Popular
+									<i class="max-wujiaox">★</i><i class="min-wujiaox">★</i>
+								</h4>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6 col-lg-3 mt-4 pt-2" v-for="item in popular.slice(0, 20)" :key="item.gameId">
+							<a :href="handleToDetail(item.gameId, 'Popular')">
+								<div class="position-relative overflow-hidden blog  rounded shadow">
+									<div class="position-relative overflow-hidden">
+										<img :src="item.gameLogo" :data-src="item.gameLogo"
+											:alt="`${item.gameLogo}|${item.gameId}`" class="img-fluid blog-img">
+										<div class="blog-tag">
+											<span class="badge bg-primary fw-light">Play</span>
+										</div>
+									</div>
+									<div class="content p-4 ">
+										<small><i class="uil uil-calendar-alt"></i></small>
+										<span class="score_span"
+											style="font-size: 16px !important;color: #ffbc42;"><span
+												class="score-icon"></span>4.5 &nbsp;<span style="color: #fa009f;"><span
+													class="heart-fill"></span>Like {{item.gameId}}</span></span>
+										<span class="title text-dark d-block mt-2 h5">{{item.gameName}}</span>
+										<div class="play-imgs">
+											<img src="images/GamePlay.png" alt="" />
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<a href="popular.html" class="more-link"
+							style="width: 90%;display: inline-block;text-align: center;color: #fff;background: #ffbc42;line-height: 40px;border-radius: 20px;margin: 20px auto;font-weight: 600;font-size: 18px;">
+							More →
+						</a>
+					</div>
+				</div>
 			</section>
 		</main>
 		<footer v-html="footer"></footer>
