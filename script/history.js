@@ -1,0 +1,146 @@
+var vm = new Vue({
+    el: '#app',
+    data() {
+        return {
+            showCate: false,
+            gameHistory: [],
+            footer: '',
+            gameChannelId: 0,
+            // 所有分类
+            allCategories: [{
+                name: 'Home',
+                id: 15
+            },
+            {
+                name: 'Beauty',
+                id: 1
+            },
+            {
+                name: 'Puzzle',
+                id: 2
+            },
+            {
+                name: 'Sports',
+                id: 4
+            },
+            {
+                name: 'New',
+                id: 5
+            },
+            {
+                name: 'Action',
+                id: 8
+            },
+            {
+                name: 'Best',
+                id: 14
+            },
+            {
+                name: 'Racing',
+                id: 3
+            },
+            {
+                name: 'Adventure',
+                id: 6
+            },
+            {
+                name: 'Strategy',
+                id: 7
+            },
+            {
+                name: 'Arcade',
+                id: 9
+            },
+            {
+                name: 'Shooting',
+                id: 10
+            },
+            {
+                name: 'Simulation',
+                id: 11
+            },
+            {
+                name: 'RPG',
+                id: 12
+            },
+            {
+                name: 'Casual',
+                id: 13
+            },
+            ]
+        }
+    },
+    computed: {
+        // PC端主要分类（显示在导航栏）
+        mainCategories() {
+            return this.allCategories.slice(0, 7) // 前7个作为主要分类
+        },
+        // PC端更多分类（放入下拉菜单）
+        moreCategories() {
+            return this.allCategories.slice(7) // 剩余的放入More菜单
+        },
+        // 移动端显示所有分类
+        categories() {
+            return this.allCategories
+        }
+    },
+    created() {
+        // 从URL获取gameChannelId
+        const gameChannelIdParam = getQueryVariable('gameChannelId')
+        if (gameChannelIdParam) {
+            this.gameChannelId = parseInt(gameChannelIdParam, 10) || 0
+        }
+        this.loadGameHistory()
+    },
+    mounted() {
+        // 确保Vue渲染完成后移除v-cloak并显示导航
+        this.$nextTick(() => {
+            this.init();
+            // 强制移除v-cloak属性
+            this.$el.removeAttribute('v-cloak');
+        });
+    },
+    methods: {
+        init() {
+            this.footer = useFooter()
+            window.addEventListener("scroll", debounce(handleScroll, 500), true)
+            document.title = 'History - h5gamelist'
+        },
+        loadGameHistory() {
+            try {
+                const history = JSON.parse(localStorage.getItem('gameHistory') || '[]')
+                this.gameHistory = history
+            } catch (e) {
+                console.error('Failed to load game history:', e)
+                this.gameHistory = []
+            }
+        },
+        formatDate(timestamp) {
+            const date = new Date(timestamp)
+            const now = new Date()
+            const diff = now - date
+            const minutes = Math.floor(diff / 60000)
+            const hours = Math.floor(diff / 3600000)
+            const days = Math.floor(diff / 86400000)
+
+            if (minutes < 1) return 'Just now'
+            if (minutes < 60) return minutes + ' minutes ago'
+            if (hours < 24) return hours + ' hours ago'
+            if (days < 7) return days + ' days ago'
+            return date.toLocaleDateString()
+        },
+        handleToType(category) {
+            if (typeof category === 'object') {
+                return `type.html?type=${category.id}&typeName=${category.name}&gameChannelId=${this.gameChannelId}`;
+            }
+            const cat = this.allCategories.find(c => c.name === category || c.id === category)
+            if (cat) {
+                return `type.html?type=${cat.id}&typeName=${cat.name}&gameChannelId=${this.gameChannelId}`;
+            }
+            return '#'
+        },
+        handleToDetail(gameId, type) {
+            return `detail.html?gameId=${gameId}&gameChannelId=${this.gameChannelId}&type=${type}`
+        }
+    }
+})
