@@ -128,12 +128,12 @@ var vm = new Vue({
         }
       }
       const categoryIds = [
-        { name: "Beauty", id: 1 },
+        { name: "Action", id: 8 },
+        { name: "Home", id: 15 },
         { name: "Puzzle", id: 2 },
         { name: "Sports", id: 4 },
-        { name: "Home", id: 15 },
-        { name: "Action", id: 8 },
         { name: "Best", id: 14 },
+        { name: "Beauty", id: 1 },
       ];
       // 并行请求所有分类的游戏
       const promises = categoryIds.map((category) => {
@@ -147,6 +147,7 @@ var vm = new Vue({
           },
         })
           .then((res) => {
+            console.log(res.data);
             return {
               name: category.name,
               games: res.data.data || [],
