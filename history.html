@@ -1,1 +1,122 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="History - View your recently played games" /><title></title><link rel="shortcut icon" href="images/youxi_icon.png" type="image/x-icon"><link rel="stylesheet" type="text/css" href="style/type.css" /><link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" /><link rel="stylesheet" type="text/css" href="./style/style2.css"><link rel="stylesheet" type="text/css" href="style/reset.css" /><link rel="stylesheet" type="text/css" href="style/swiper.min.css" /><link rel="stylesheet" type="text/css" href="style/head.css" /><link rel="stylesheet" type="text/css" href="style/public.css" /><link rel="stylesheet" type="text/css" href="style/vue.css" /><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2591882719569178" crossorigin="anonymous"></script></head><body><noscript><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-2591882719569178" data-ad-slot="8276356781"></ins></noscript><div id="app" v-cloak><div class="top-nav-bar"><div class="container clearfix"><div class="fl left"><a :href="`index.html?gameChannelId=${gameChannelId}`"></a></div><div class="nav-center" v-cloak><ul class="navbar_nav"><template v-for="cate in mainCategories" :key="cate.id"><li class="active"><a :href="cate.id === 15 ? `index.html?gameChannelId=${gameChannelId}` : handleToType(cate)">{{cate.name}}</a></li><li v-if="cate.id === 15" class="active"><a :href="`popular.html?gameChannelId=${gameChannelId}`">Popular</a></li></template><li class="active"><a :href="`history.html?gameChannelId=${gameChannelId}`">History</a></li><li class="dropdown more-categories" v-if="moreCategories.length > 0"><a href="javascript:void(0)">More <span class="dropdown-arrow">▼</span></a><ul class="dropdown-menu"><li v-for="cate in moreCategories" :key="cate.id"><a :href="handleToType(cate)">{{cate.name}}</a></li></ul></li><li class="active"><a :href="`search.html?gameChannelId=${gameChannelId}`">Search <span class="dropdown-arrow"><img src="images/tubiao11.png" width="12px" /></span></a></li></ul></div><a href="javascript:void(0)" id="navToggle"><span></span></a></div></div><div class="m_nav"><div class="top clearfix"><img src="images/guanbi.png" alt="" class="closed" /></div><ul class="ul" data-in="fadeInDown" data-out="fadeOutUp"><template v-for="cate in mainCategories" :key="cate.id"><li class="active"><a :href="cate.id === 15 ? `index.html?gameChannelId=${gameChannelId}` : handleToType(cate)">{{cate.name}}</a></li><li v-if="cate.id === 15" class="active"><a :href="`popular.html?gameChannelId=${gameChannelId}`">Popular</a></li></template><li class="active"><a :href="`history.html?gameChannelId=${gameChannelId}`">History</a></li><li class="dropdown more-categories" v-if="moreCategories.length > 0"><a href="javascript:void(0)">More <span class="dropdown-arrow">▼</span></a><div class="dropdown_menu"><a v-for="cate in moreCategories" :key="cate.id" :href="handleToType(cate)">{{cate.name}}</a></div></li><li class="active"><a :href="`search.html?gameChannelId=${gameChannelId}`">Search <span class="dropdown-arrow"><img src="images/tubiao33.png" width="12px" /></span></a></li></ul></div><main><section class="section"><div class="container"><div class="row"><div class="col-12"><div class="section-title text-center mb-4"><h4 class="title">History</h4></div></div></div><div class="row" v-if="gameHistory.length > 0"><div class="col-6 col-lg-3 mt-4 pt-2" v-for="item in gameHistory" :key="item.gameId"><a :href="handleToDetail(item.gameId, 'History')"><div class="position-relative overflow-hidden blog rounded shadow"><div class="position-relative overflow-hidden"><img :src="item.gameLogo" :data-src="item.gameLogo" :alt="`${item.gameLogo}|${item.gameId}`" class="img-fluid blog-img"><div class="blog-tag"><span class="badge bg-primary fw-light">play</span></div></div><div class="content p-4 "><span class="score_span" style="font-size: 16px !important;color: #ffbc42;"><span class="score-icon"></span>4.5 &nbsp;<span style="color: #fa009f;"><span class="heart-fill"></span>Like {{item.gameId}}</span></span><small style="color: #ffbc42;font-size: 14px;"><i class="uil uil-calendar-alt"></i> {{formatDate(item.timestamp)}}</small><span class="title text-dark d-block mt-2 h5" style="text-align: left;">{{item.gameName}}</span></div></div></a></div></div><div class="row" v-else><div class="col-12 text-center mt-5"><p class="text-muted">No game history yet. Start playing games to see them here!</p></div></div></div></section></main><footer v-html="footer"></footer></div></body><script src="script/footer.js"></script><script src="script/main.js"></script><script src="script/vue.min.js"></script><script src="script/axios.min.js"></script><script src="script/bootstrap.bundle.min.js"></script><script src="script/jquery-1.10.2.js"></script><script src="script/bootstrap-3.3.4.js"></script><script src="script/swiper.min.js"></script><script src="script/header.js"></script><script src="script/history.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="History - View your recently played games" />
+    <title></title>
+    <link rel="shortcut icon" href="images/youxi_icon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style/type.css" />
+    <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./style/style2.css">
+    <link rel="stylesheet" type="text/css" href="style/reset.css" />
+    <link rel="stylesheet" type="text/css" href="style/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="style/head.css" />
+    <link rel="stylesheet" type="text/css" href="style/public.css" />
+    <link rel="stylesheet" type="text/css" href="style/vue.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2591882719569178"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <noscript>
+        <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+            data-ad-client="ca-pub-2591882719569178" data-ad-slot="8276356781"></ins>
+    </noscript>
+    <div id="app" v-cloak>
+        <div class="top-nav-bar">
+            <div class="container clearfix">
+                <div class="fl left"><a :href="`index.html?gameChannelId=${gameChannelId}`"></a></div>
+                <div class="nav-center" v-cloak>
+                    <ul class="navbar_nav"><template v-for="cate in mainCategories" :key="cate.id">
+                            <li class="active"><a
+                                    :href="cate.id === 15 ? `index.html?gameChannelId=${gameChannelId}` : handleToType(cate)">{{cate.name}}</a>
+                            </li>
+                            <li v-if="cate.id === 15" class="active"><a
+                                    :href="`popular.html?gameChannelId=${gameChannelId}`">Popular</a></li>
+                        </template>
+                        <li class="active"><a :href="`history.html?gameChannelId=${gameChannelId}`">History</a></li>
+                        <li class="dropdown more-categories" v-if="moreCategories.length > 0"><a
+                                href="javascript:void(0)">More <span class="dropdown-arrow">▼</span></a>
+                            <ul class="dropdown-menu">
+                                <li v-for="cate in moreCategories" :key="cate.id"><a
+                                        :href="handleToType(cate)">{{cate.name}}</a></li>
+                            </ul>
+                        </li>
+                        <li class="active"><a :href="`search.html?gameChannelId=${gameChannelId}`">Search <span
+                                    class="dropdown-arrow"><img src="images/tubiao11.png" width="12px" /></span></a>
+                        </li>
+                    </ul>
+                </div><a href="javascript:void(0)" id="navToggle"><span></span></a>
+            </div>
+        </div>
+        <div class="m_nav">
+            <div class="top clearfix"><img src="images/guanbi.png" alt="" class="closed" /></div>
+            <ul class="ul" data-in="fadeInDown" data-out="fadeOutUp"><template v-for="cate in mainCategories"
+                    :key="cate.id">
+                    <li class="active"><a
+                            :href="cate.id === 15 ? `index.html?gameChannelId=${gameChannelId}` : handleToType(cate)">{{cate.name}}</a>
+                    </li>
+                    <li v-if="cate.id === 15" class="active"><a
+                            :href="`popular.html?gameChannelId=${gameChannelId}`">Popular</a></li>
+                </template>
+                <li class="active"><a :href="`history.html?gameChannelId=${gameChannelId}`">History</a></li>
+                <li class="dropdown more-categories" v-if="moreCategories.length > 0"><a href="javascript:void(0)">More
+                        <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown_menu"><a v-for="cate in moreCategories" :key="cate.id"
+                            :href="handleToType(cate)">{{cate.name}}</a></div>
+                </li>
+                <li class="active"><a :href="`search.html?gameChannelId=${gameChannelId}`">Search <span
+                            class="dropdown-arrow"><img src="images/tubiao33.png" width="12px" /></span></a></li>
+            </ul>
+        </div>
+        <main>
+            <section class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title text-center mb-4">
+                                <h4 class="title">History</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" v-if="gameHistory.length > 0">
+                        <div class="col-4 col-lg-3 mt-6 pt-3" v-for="item in gameHistory" :key="item.gameId">
+                            <a :href="handleToDetail(item.gameId, 'History')">
+                               <div class="position-relative overflow-hidden blog rounded shadow">
+                                    <div class="position-relative overflow-hidden"><img :src="item.gameLogo"
+                                            :data-src="item.gameLogo" :alt="`${item.gameLogo}|${item.gameId}`"
+                                            class="img-fluid blog-img">
+                                    </div>
+                                    <div class="content">
+                                        <span class="text-dark d-block2">{{item.gameName}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" v-else>
+                        <div class="col-12 text-center mt-5">
+                            <p class="text-muted">No game history yet. Start playing games to see them here!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer v-html="footer"></footer>
+    </div>
+</body>
+<script src="script/footer.js"></script>
+<script src="script/main.js"></script>
+<script src="script/vue.min.js"></script>
+<script src="script/axios.min.js"></script>
+<script src="script/bootstrap.bundle.min.js"></script>
+<script src="script/jquery-1.10.2.js"></script>
+<script src="script/bootstrap-3.3.4.js"></script>
+<script src="script/swiper.min.js"></script>
+<script src="script/header.js"></script>
+<script src="script/history.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+</html>

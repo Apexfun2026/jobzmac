@@ -1,8 +1,10 @@
-.game-detail{background-color:#fff;border-radius:10px}
-@media (max-width:600px){.game-detail{flex-wrap:wrap}
-.game-left{width:100%!important;height:auto!important}
+.game-detail{ background: #F5F5F5;}
+@media (max-width:600px){.game-detail{flex-wrap:wrap;}
+.game-left{width:100%!important;}
 }
-.game-detail .game-left{width:300px;height:300px;padding:10px;text-align:center}
+.game-detail .game-left{width:100%;height:200px;text-align:center;position: relative;}
+.game-detail .game-left .img-box{position: absolute;width: 100px;height: 100px;bottom: -40px;left: 20px;border-radius: 100px;border: 4px solid #fff;background: #fff;}
+.game-detail .game-left .img-box img{border-radius: 100px;}
 .titleimage{display:flex!important;align-items:center!important;justify-content:center;margin:30px 0;font-size:40px!important}
 .titleicons{margin-right:10px;display:flex!important;align-items:center!important}
 .content-title img{width:50px;height:50px}
@@ -39,15 +41,12 @@
 .top-nav-bar.scrolled .navbar_nav li a:hover{color:#fa009f}
 #navToggle{display:none}
 main{margin-top:60px}
-.content{background-color:#fff}
+.content{width: 100%;position: absolute; bottom: 0px;left:0px;text-align: center;}
 .play-imgs{width:100%;text-align:center}
 .play-imgs img{width:50px}
 .img-fluid{width:100%}
 .score-icon{display:inline-block;width:16px;height:16px;background-image:url(../images/dianzan.svg);background-repeat:no-repeat;background-size:contain;background-position-y:2px}
 .heart-fill{display:inline-block;width:16px;height:16px;background-image:url(../images/heart-fill.svg);background-repeat:no-repeat;background-size:contain;background-position-y:2px}
-.li-right,.row ul .li-left{float:left;height:166px;list-style:none;margin-bottom:20px}
-.row ul .li-left{width:30%}
-.row ul .li-right{width:70%}
 .textbox h2{padding:10px 0 10px 0;color:#ffbc42}
 @media screen and (max-width:768px){.top-nav-bar{height:50px;padding:0!important}
 .top-nav-bar .container{padding:0!important;max-width:100%!important;margin:0!important;width:100%!important}
@@ -65,13 +64,13 @@ main{margin-top:60px}
 main{margin-top:50px}
 }
 .blog{display:flex;flex-direction:column;height:100%}
-.blog>div:first-child{position:relative;width:100%;height:200px;overflow:hidden}
+/* .blog>div:first-child{position:relative;width:100%;overflow:hidden} */
 .blog .blog-img{width:100%;height:100%;object-fit:cover}
 .blog .content{display:flex;flex-direction:column;flex:1}
-.blog .content .title{min-height:48px;max-height:48px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:24px}
-@media screen and (max-width:991px){.blog>div:first-child{height:180px}
+.blog .content .title{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:24px}
+/* @media screen and (max-width:991px){.blog>div:first-child{height:180px}
 .blog .content .title{min-height:48px;max-height:48px}
-}
+} */
 #app>.container{max-width:1200px;margin:0 auto;padding:40px 30px;padding-top:100px}
 .page-header{text-align:center;margin-bottom:50px;padding:30px 0}
 .page-header h1{font-size:36px;font-weight:700;color:#ffbc42;margin-bottom:10px}
@@ -93,7 +92,7 @@ strong{color:#1f2129;font-weight:600}
 .page-header h1{font-size:28px}
 .content-wrapper{padding:30px 20px;border-radius:8px}
 h1{font-size:24px}
-h4{font-size:18px;margin-top:30px}
+h4{font-size:18px;margin-top:10px}
 p{font-size:14px}
 .highlight-box{padding:15px}
 }
