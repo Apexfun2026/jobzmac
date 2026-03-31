@@ -85,7 +85,7 @@
         </div>
         <main>
              <section class="section" style="padding: 20px 0;">
-                <div class="ad-container" style="max-height: 120px; overflow: hidden;">
+                <div id="ad-container" style="max-height: 120px; overflow: hidden;">
                 <!--ads start--->
                     <!-- A -->
                         <ins class="adsbygoogle"
@@ -93,7 +93,7 @@
                         data-ad-client="ca-pub-2591882719569178"
                         data-ad-slot="8874338763"
                         data-ad-format="auto"
-                        data-full-width-responsive="true" id="ads"></ins>
+                        data-full-width-responsive="true"></ins>
                 <!--ads stop--->
                 </div>
             </section>
@@ -183,16 +183,17 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
 
-    // window.addEventListener('load', function() {
-    //     var ttclid = new URLSearchParams(window.location.search).get('ttclid');
-    //     ttq.track('Click', { ttclid: ttclid });
-    // });
-    document.getElementById('ads').addEventListener('click', function(event) {
-        console.log("点击了广告~");
-        // 检查点击的元素是否是子元素
-        // if (event.target.id === 'child') {
-        //     console.log('子节点被点击');
-        // }
+    document.querySelectorAll('#ad-container').forEach(el => {
+        el.addEventListener('click', function(e) {
+            const adId = this.dataset.adId;
+            console.log('AdSense 广告点击:', adId);
+            // 上报到 GA4/GTM
+            // gtag('event', 'ad_click', {
+            //     ad_id: adId,
+            //     ad_type: 'AdSense Banner',
+            //     page_url: window.location.href
+            // });
+        });
     });
 </script>
 </html>
