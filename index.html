@@ -183,9 +183,21 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
 
-    window.addEventListener('load', function() {
-        var ttclid = new URLSearchParams(window.location.search).get('ttclid');
-        ttq.track('Click', { ttclid: ttclid });
+    // window.addEventListener('load', function() {
+    //     var ttclid = new URLSearchParams(window.location.search).get('ttclid');
+    //     ttq.track('Click', { ttclid: ttclid });
+    // });
+     document.querySelectorAll('.ad-container').forEach(el => {
+        el.addEventListener('click', function(e) {
+            const adId = this.dataset.adId;
+                console.log('AdSense 广告点击:', adId);
+            // 上报到 GA4/GTM
+            // gtag('event', 'ad_click', {
+            // ad_id: adId,
+            // ad_type: 'AdSense Banner',
+            // page_url: window.location.href
+            // });
+        });
     });
 </script>
 </html>
