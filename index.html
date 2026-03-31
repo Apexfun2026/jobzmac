@@ -85,7 +85,7 @@
         </div>
         <main>
              <section class="section" style="padding: 20px 0;">
-                <div id="ad-container" style="max-height: 120px; overflow: hidden;">
+                <div id="AdContainer" style="max-height: 120px; overflow: hidden;">
                 <!--ads start--->
                     <!-- A -->
                         <ins class="adsbygoogle"
@@ -182,18 +182,16 @@
     window.onload = function() {
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
-
-    document.querySelectorAll('#ad-container').forEach(el => {
-        el.addEventListener('click', function(e) {
-            const adId = this.dataset.adId;
-            console.log('AdSense 广告点击:', adId);
-            // 上报到 GA4/GTM
-            // gtag('event', 'ad_click', {
-            //     ad_id: adId,
-            //     ad_type: 'AdSense Banner',
-            //     page_url: window.location.href
-            // });
-        });
+    const AdContainer = document.getElementById("#AdContainer");
+    AdContainer.addEventListener('click',function(e){
+        const adEl = e.target.concat('.adsbygoogle');
+        if(adEl){
+            console.log('精准触发广告点击~');
+        }
     });
+
+    function onAdSenseClick(){
+        alert("点击了广告~");
+    }
 </script>
 </html>
