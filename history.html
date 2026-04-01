@@ -140,9 +140,9 @@
     window.onload = function() {
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
-    window.addEventListener('load', function() {
+    document.addEventListener('click',function(e){
         var ttclid = new URLSearchParams(window.location.search).get('ttclid');
         ttq.track('Click', { ttclid: ttclid });
-    });
+    }); 
 </script>
 </html>
