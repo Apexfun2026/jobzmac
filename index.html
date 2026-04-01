@@ -182,16 +182,13 @@
     window.onload = function() {
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
-    const AdContainer = document.getElementById("AdContainer");
-    AdContainer.addEventListener('click',function(e){
-        const adEl = e.target.concat('.adsbygoogle');
-        if(adEl){
-            console.log('精准触发广告点击~');
-        }
+    document.addEventListener('click',function(e){
+        console.log('页面被点击了~',e.target);
+        alert('你点击了页面');
     });
-
-    function onAdSenseClick(){
-        alert("点击了广告~");
-    }
+    document.addEventListener('touchstart',function(e){
+        console.log('移动端触发点击');
+        alert("移动端~");
+    })
 </script>
 </html>
