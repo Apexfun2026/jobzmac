@@ -145,6 +145,7 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
     document.addEventListener('click',function(e){
+        console.log("click-web-jobzmac");
         var ttclid = new URLSearchParams(window.location.search).get('ttclid');
         ttq.track('Click', { ttclid: ttclid });
     }); 
