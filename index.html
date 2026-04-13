@@ -4,64 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Game Zone - Play Free Online Games</title>
     <link rel="shortcut icon" href="images/youxi_icon.png" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="style/index.css" />
-    <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="style/style2.css" />
     <link rel="stylesheet" type="text/css" href="style/reset.css" />
+    <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="style/swiper.min.css" />
-    <link rel="stylesheet" type="text/css" href="style//head.css" />
     <link rel="stylesheet" type="text/css" href="style/public.css" />
+    <link rel="stylesheet" type="text/css" href="style/index.css" />
+    <link rel="stylesheet" type="text/css" href="style/style2.css" />
+    <link rel="stylesheet" type="text/css" href="style/head.css" />
     <link rel="stylesheet" type="text/css" href="style/vue.css" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2591882719569178"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2591882719569178" crossorigin="anonymous"></script>
+    <!-- MaxValue.media / Ads --><script defer id="1135957393" src="https://ads.maxvaluead.com/scripts/maxvalue_ads_1135957393.js"></script><!-- /MaxValue.media -->
     <!-- TikTok Pixel Code Start -->
     <script>
-        !function (w, d, t) {
-        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-        var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-        ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-        ttq.load('D6UEG0RC77UCSLHQU1N0');
-        ttq.page();
+        !function(w, d, t) {
+            w.TiktokAnalyticsObject = t;
+            var ttq = w[t] = w[t] || [];
+            ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
+            ttq.setAndDefer = function(t, e) {
+                t[e] = function() {
+                    t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                };
+            };
+            for (var i = 0; i < ttq.methods.length; i++) {
+                ttq.setAndDefer(ttq, ttq.methods[i]);
+            }
+            ttq.instance = function(t) {
+                for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) {
+                    ttq.setAndDefer(e, ttq.methods[n]);
+                }
+                return e;
+            };
+            ttq.load = function(e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js",
+                    o = n && n.partner;
+                ttq._i = ttq._i || {};
+                ttq._i[e] = [];
+                ttq._i[e]._u = r;
+                ttq._t = ttq._t || {};
+                ttq._t[e] = +new Date;
+                ttq._o = ttq._o || {};
+                ttq._o[e] = n || {};
+                n = document.createElement("script");
+                n.type = "text/javascript";
+                n.async = !0;
+                n.src = r + "?sdkid=" + e + "&lib=" + t;
+                e = document.getElementsByTagName("script")[0];
+                e.parentNode.insertBefore(n, e);
+            };
+            ttq.load('D6UEG0RC77UCSLHQU1N0');
+            ttq.page();
         }(window, document, 'ttq');
     </script>
     <!-- TikTok Pixel Code End -->
 </head>
-<body>
 
+<body>
     <div id="app" v-cloak>
+        <!-- Top Navigation Bar -->
         <div class="top-nav-bar">
             <div class="container clearfix">
-                <div class="fl left"><a :href="`index.html?gameChannelId=${gameChannelId}`"></a></div>
+                <div class="fl left">
+                    <a :href="`index.html?gameChannelId=${gameChannelId}`"></a>
+                </div>
                 <div class="nav-center" v-cloak>
-                    <ul class="navbar_nav"><template v-for="cate in mainCategories" :key="cate.id">
-                            <li class="active"><a
-                                    :href="cate.id === 15 ? `index.html?gameChannelId=${gameChannelId}` : handleToType(cate)">{{cate.name}}</a>
+                    <ul class="navbar_nav">
+                        <template v-for="cate in mainCategories" :key="cate.id">
+                            <li class="active">
+                                <a :href="cate.id === 15 ? `index.html?gameChannelId=${gameChannelId}` : handleToType(cate)">{{cate.name}}</a>
                             </li>
-                            <li v-if="cate.id === 15" class="active"><a
-                                    :href="`popular.html?gameChannelId=${gameChannelId}`">Popular</a></li>
+                            <li v-if="cate.id === 15" class="active">
+                                <a :href="`popular.html?gameChannelId=${gameChannelId}`">Popular</a>
+                            </li>
                         </template>
-                        <li class="active"><a :href="`history.html?gameChannelId=${gameChannelId}`">History</a></li>
-                        <li class="dropdown more-categories" v-if="moreCategories.length > 0"><a
-                                href="javascript:void(0)">More <span class="dropdown-arrow">▼</span></a>
+                        <li class="active">
+                            <a :href="`history.html?gameChannelId=${gameChannelId}`">History</a>
+                        </li>
+                        <li class="dropdown more-categories" v-if="moreCategories.length > 0">
+                            <a href="javascript:void(0)">More <span class="dropdown-arrow">▼</span></a>
                             <ul class="dropdown-menu">
-                                <li v-for="cate in moreCategories" :key="cate.id"><a
-                                        :href="handleToType(cate)">{{cate.name}}</a></li>
+                                <li v-for="cate in moreCategories" :key="cate.id">
+                                    <a :href="handleToType(cate)">{{cate.name}}</a>
+                                </li>
                             </ul>
                         </li>
-                        <li class="active"><a :href="`search.html?gameChannelId=${gameChannelId}`">Search <span
-                                    class="dropdown-arrow"><img src="images/tubiao11.png" width="12px" /></span></a>
+                        <li class="active">
+                            <a :href="`search.html?gameChannelId=${gameChannelId}`">
+                                Search <span class="dropdown-arrow"><img src="images/tubiao11.png" width="12px" /></span>
+                            </a>
                         </li>
                     </ul>
-                </div><a href="javascript:void(0)" id="navToggle"><img src="images/caidan.png" /></a>
+                </div>
+                <a href="javascript:void(0)" id="navToggle">
+                    <img src="images/caidan.png" />
+                </a>
             </div>
         </div>
+
+        <!-- Mobile Navigation -->
         <div class="m_nav">
-            <div class="top clearfix"><img src="images/guanbi.png" alt="" class="closed" /></div>
+            <div class="top clearfix">
+                <img src="images/guanbi.png" alt="Close" class="closed" />
+            </div>
             <ul class="ul" data-in="fadeInDown" data-out="fadeOutUp">
-                <template v-for="cate in mainCategories"
-                    :key="cate.id">
+                <template v-for="cate in mainCategories" :key="cate.id">
                     <li class="active">
                         <a :href="cate.id === 15 ? `index.html?gameChannelId=${gameChannelId}` : handleToType(cate)">{{cate.name}}</a>
                     </li>
@@ -69,42 +116,50 @@
                         <a :href="`popular.html?gameChannelId=${gameChannelId}`">Popular</a>
                     </li>
                 </template>
-                <li class="active"><a :href="`history.html?gameChannelId=${gameChannelId}`">History</a></li>
-                <li class="dropdown more-categories" v-if="moreCategories.length > 0"><a href="javascript:void(0)">More<span class="dropdown-arrow">▼</span></a>
+                <li class="active">
+                    <a :href="`history.html?gameChannelId=${gameChannelId}`">History</a>
+                </li>
+                <li class="dropdown more-categories" v-if="moreCategories.length > 0">
+                    <a href="javascript:void(0)">More <span class="dropdown-arrow">▼</span></a>
                     <div class="dropdown_menu">
                         <a v-for="cate in moreCategories" :key="cate.id" :href="handleToType(cate)">{{cate.name}}</a>
                     </div>
                 </li>
                 <li class="active">
                     <a :href="`search.html?gameChannelId=${gameChannelId}`">
-                        Search 
-                        <span class="dropdown-arrow"><img src="images/tubiao33.png" width="12px" /></span>
+                        Search <span class="dropdown-arrow"><img src="images/tubiao33.png" width="12px" /></span>
                     </a>
                 </li>
             </ul>
         </div>
+
+        <!-- Main Content -->
         <main>
-             <section class="section" style="padding: 20px 0;">
+            <!-- Advertisement Section -->
+            <section class="section" style="padding: 20px 0;">
                 <div id="AdContainer" style="max-height: 120px; overflow: hidden;">
-                <!--ads start--->
-                    <!-- A -->
-                        <ins class="adsbygoogle"
-                        style="display:block"
+                    <!-- Ads Start -->
+                    <ins class="adsbygoogle"
+                        style="display: block"
                         data-ad-client="ca-pub-2591882719569178"
                         data-ad-slot="8874338763"
                         data-ad-format="auto"
                         data-full-width-responsive="true"></ins>
-                <!--ads stop--->
+                    <!-- Ads Stop -->
                 </div>
             </section>
+
+            <!-- Popular Games Section -->
             <section class="section">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div
-                                class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
-                                <h4 class="title mb-0"><i class="min-wujiaox">★</i><i class="max-wujiaox">★</i> Popular
-                                    <i class="max-wujiaox">★</i><i class="min-wujiaox">★</i>
+                            <div class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
+                                <h4 class="title mb-0">
+                                    <i class="min-wujiaox">★</i>
+                                    <i class="max-wujiaox">★</i> Popular 
+                                    <i class="max-wujiaox">★</i>
+                                    <i class="min-wujiaox">★</i>
                                 </h4>
                             </div>
                         </div>
@@ -113,8 +168,10 @@
                         <div class="col-4 col-lg-3 mt-6 pt-3" v-for="item in popular.slice(0, 20)" :key="item.gameId">
                             <a :href="handleToDetail(item.gameId, 'Popular')">
                                 <div class="position-relative overflow-hidden blog rounded shadow">
-                                    <div class="position-relative overflow-hidden"><img :src="item.gameLogo"
-                                            :data-src="item.gameLogo" :alt="`${item.gameLogo}|${item.gameId}`"
+                                    <div class="position-relative overflow-hidden">
+                                        <img :src="item.gameLogo"
+                                            :data-src="item.gameLogo"
+                                            :alt="`${item.gameName}`"
                                             class="img-fluid blog-img">
                                     </div>
                                     <div class="content">
@@ -123,21 +180,25 @@
                                 </div>
                             </a>
                         </div>
-                        <a href="popular.html" class="more-link"
-                            style="width: 90%;display: inline-block;text-align: center;color: #fff;background: #ffbc42;line-height: 40px;border-radius: 20px;margin: 20px auto;font-weight: 600;font-size: 18px;">
+                        <a href="popular.html" class="more-link">
                             More →
                         </a>
                     </div>
                 </div>
             </section>
-            <section class="section">
-                <div class="container" v-for="(parent, key) in gameData" :key="parent">
+
+            <!-- Game Categories Section -->
+            <section class="section" v-for="(parent, key) in gameData" :key="parent.name">
+                <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div
-                                class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
-                                <h4 class="title mb-0"><i class="min-wujiaox">★</i><i class="max-wujiaox">★</i>
-                                    {{parent.name}} <i class="max-wujiaox">★</i><i class="min-wujiaox">★</i></h4>
+                            <div class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
+                                <h4 class="title mb-0">
+                                    <i class="min-wujiaox">★</i>
+                                    <i class="max-wujiaox">★</i> {{parent.name}} 
+                                    <i class="max-wujiaox">★</i>
+                                    <i class="min-wujiaox">★</i>
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -146,8 +207,10 @@
                             v-for="child in (parent.displayGames || parent.games || []).slice(0, 12)" :key="child.gameId">
                             <a :href="handleToDetail(child.gameId, parent.name)">
                                 <div class="position-relative overflow-hidden blog rounded shadow">
-                                    <div class="position-relative overflow-hidden"><img :src="child.gameLogo"
-                                            :data-src="child.gameLogo" :alt="`${child.gameLogo}|${child.gameId}`"
+                                    <div class="position-relative overflow-hidden">
+                                        <img :src="child.gameLogo"
+                                            :data-src="child.gameLogo"
+                                            :alt="`${child.gameName}`"
                                             class="img-fluid blog-img">
                                     </div>
                                     <div class="content">
@@ -156,36 +219,39 @@
                                 </div>
                             </a>
                         </div>
-
-                        <!-- </div> -->
-                        <a v-if="parent.name !== 'Home'" :href="handleToType(parent)" class="more-link"
-                            style="width: 90%;display: inline-block;text-align: center;color: #fff;background: #ffbc42;line-height: 40px;border-radius: 20px;margin: 20px auto;font-weight: 600;font-size: 18px;">
-                            More → </a>
+                        <a v-if="parent.name !== 'Home'" :href="handleToType(parent)" class="more-link">
+                            More →
+                        </a>
                     </div>
+                </div>
             </section>
         </main>
+
+        <!-- Footer -->
         <footer v-html="footer"></footer>
     </div>
-</body>
-<script src="script/jquery-1.10.2.js"></script>
-<script src="script/main.js"></script>
-<script src="script/footer.js"></script>
-<script src="script/gameData.js"></script>
-<script src="script/vue.min.js"></script>
-<script src="script/axios.min.js"></script>
-<script src="script/bootstrap.bundle.min.js"></script>
-<script src="script/bootstrap-3.3.4.js"></script>
-<script src="script/swiper.min.js"></script>
-<script src="script/header.js"></script>
-<script src="script/index.js"></script>
-<script>
-    window.onload = function() {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    }
-    document.addEventListener('click',function(e){
-        console.log("click-web-jobzmac");
-        var ttclid = new URLSearchParams(window.location.search).get('ttclid');
-        ttq.track('Click', { ttclid: ttclid });
-    }); 
-</script>
+
+    <!-- Scripts -->
+    <script src="script/jquery-1.10.2.js"></script>
+    <script src="script/vue.min.js"></script>
+    <script src="script/axios.min.js"></script>
+    <script src="script/bootstrap.bundle.min.js"></script>
+    <script src="script/bootstrap-3.3.4.js"></script>
+    <script src="script/swiper.min.js"></script>
+    <script src="script/main.js"></script>
+    <script src="script/footer.js"></script>
+    <script src="script/gameData.js"></script>
+    <script src="script/header.js"></script>
+    <script src="script/index.js"></script>
+    <script>
+        window.onload = function() {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        };
+        
+        document.addEventListener('click', function(e) {
+            console.log("click-web-jobzmac");
+            var ttclid = new URLSearchParams(window.location.search).get('ttclid');
+            ttq.track('Click', { ttclid: ttclid });
+        });
+    </script>
 </html>
