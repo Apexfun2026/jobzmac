@@ -15,7 +15,9 @@
     <link rel="stylesheet" type="text/css" href="style/head.css" />
     <link rel="stylesheet" type="text/css" href="style/vue.css" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2591882719569178" crossorigin="anonymous"></script>
-    <!-- MaxValue.media / Ads --><script defer id="1135957393" src="https://ads.maxvaluead.com/scripts/maxvalue_ads_1135957393.js"></script><!-- /MaxValue.media -->
+    <!-- MaxValue.media / Ads -->
+    <script defer id="1135957393" src="https://ads.maxvaluead.com/scripts/maxvalue_ads_1135957393.js"></script>
+    <!-- /MaxValue.media -->
     <!-- TikTok Pixel Code Start -->
     <script>
         !function(w, d, t) {
@@ -140,11 +142,11 @@
                 <div id="AdContainer" style="max-height: 120px; overflow: hidden;">
                     <!-- Ads Start -->
                     <ins class="adsbygoogle"
-                        style="display: block"
-                        data-ad-client="ca-pub-2591882719569178"
-                        data-ad-slot="8874338763"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"></ins>
+                         style="display: block"
+                         data-ad-client="ca-pub-2591882719569178"
+                         data-ad-slot="8874338763"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
                     <!-- Ads Stop -->
                 </div>
             </section>
@@ -157,7 +159,7 @@
                             <div class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
                                 <h4 class="title mb-0">
                                     <i class="min-wujiaox">★</i>
-                                    <i class="max-wujiaox">★</i> Popular 
+                                    <i class="max-wujiaox">★</i> Popular
                                     <i class="max-wujiaox">★</i>
                                     <i class="min-wujiaox">★</i>
                                 </h4>
@@ -170,9 +172,9 @@
                                 <div class="position-relative overflow-hidden blog rounded shadow">
                                     <div class="position-relative overflow-hidden">
                                         <img :src="item.gameLogo"
-                                            :data-src="item.gameLogo"
-                                            :alt="`${item.gameName}`"
-                                            class="img-fluid blog-img">
+                                             :data-src="item.gameLogo"
+                                             :alt="`${item.gameName}`"
+                                             class="img-fluid blog-img">
                                     </div>
                                     <div class="content">
                                         <span class="title text-dark d-block2">{{item.gameName}}</span>
@@ -195,7 +197,7 @@
                             <div class="section-title text-center mb-4 d-flex justify-content-between align-items-center">
                                 <h4 class="title mb-0">
                                     <i class="min-wujiaox">★</i>
-                                    <i class="max-wujiaox">★</i> {{parent.name}} 
+                                    <i class="max-wujiaox">★</i> {{parent.name}}
                                     <i class="max-wujiaox">★</i>
                                     <i class="min-wujiaox">★</i>
                                 </h4>
@@ -204,14 +206,15 @@
                     </div>
                     <div class="row">
                         <div class="col-4 col-lg-3 mt-6 pt-3"
-                            v-for="child in (parent.displayGames || parent.games || []).slice(0, 12)" :key="child.gameId">
+                             v-for="child in (parent.displayGames || parent.games || []).slice(0, 12)"
+                             :key="child.gameId">
                             <a :href="handleToDetail(child.gameId, parent.name)">
                                 <div class="position-relative overflow-hidden blog rounded shadow">
                                     <div class="position-relative overflow-hidden">
                                         <img :src="child.gameLogo"
-                                            :data-src="child.gameLogo"
-                                            :alt="`${child.gameName}`"
-                                            class="img-fluid blog-img">
+                                             :data-src="child.gameLogo"
+                                             :alt="`${child.gameName}`"
+                                             class="img-fluid blog-img">
                                     </div>
                                     <div class="content">
                                         <span class="text-dark d-block2">{{child.gameName}}</span>
@@ -247,11 +250,13 @@
         window.onload = function() {
             (adsbygoogle = window.adsbygoogle || []).push({});
         };
-        
+
         document.addEventListener('click', function(e) {
             console.log("click-web-jobzmac");
             var ttclid = new URLSearchParams(window.location.search).get('ttclid');
             ttq.track('Click', { ttclid: ttclid });
         });
     </script>
+</body>
+
 </html>
